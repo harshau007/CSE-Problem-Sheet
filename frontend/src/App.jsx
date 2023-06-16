@@ -1,49 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import CheatSheet from "./cheatsheet";
 
-function App() {
-  const topics = [
+const App = () => {
+  const [topics, setTopics] = useState([
     {
       id: 1,
       title: "Two Sum",
-      description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order",
-      url: "https://leetcode.com/problems/two-sum/",
-    },
-    {
-      id: 1,
-      title: "Two Sum",
-      description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order",
-      url: "https://leetcode.com/problems/two-sum/",
-    },
-    {
-      id: 1,
-      title: "Two Sum",
-      description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order",
-      url: "https://leetcode.com/problems/two-sum/",
-    },
-    {
-      id: 1,
-      title: "Two Sum",
-      description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order",
-      url: "https://leetcode.com/problems/two-sum/",
-    },
-    {
-      id: 1,
-      title: "Two Sum",
-      description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order",
-      url: "https://leetcode.com/problems/two-sum/",
-    },
-    {
-      id: 1,
-      title: "Two Sum",
-      description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order",
-      url: "https://leetcode.com/problems/two-sum/",
-    },
-    {
-      id: 1,
-      title: "Two Sum",
-      description: "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.You may assume that each input would have exactly one solution, and you may not use the same element twice.You can return the answer in any order",
+      description: (
+        "Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\n" +
+        "You may assume that each input would have exactly one solution, and you may not use the same element twice.\n" +
+        "You can return the answer in any order."
+      ),
       url: "https://leetcode.com/problems/two-sum/",
     },
     {
@@ -58,13 +26,13 @@ function App() {
       description: "Description of Topic 3",
       url: "https://leetcode.com/problems/two-sum/",
     },
-  ];
+  ]);
 
   return (
-    <>
+    <div className="App">
       <CheatSheet topics={topics} />
-    </>
+    </div>
   );
-}
+};
 
 export default App;
