@@ -5,6 +5,13 @@ const CheatSheet = ({ topics }) => {
   const dialogRef = useRef(null);
 
   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dialogRef.current && !dialogRef.current.contains(event.target)) {
+        setSelectedTopic(null);
+        document.body.classList.remove("dialog-open");
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -21,34 +28,35 @@ const CheatSheet = ({ topics }) => {
     document.body.classList.remove("dialog-open");
   };
 
-  const handleClickOutside = (event) => {
-    if (dialogRef.current && !dialogRef.current.contains(event.target)) {
-      closeDialog();
-    }
-  };
-
-
   return (
     <div className="container">
       <h2>SDE Cheat Sheet</h2>
       <ul>
         {topics.map((topic) => (
-          <li key={topic.id} onClick={() => openDialog(topic)} className={topic.attempted ? "attempted" : ""}>
+          <li
+            key={topic.id}
+            onClick={() => openDialog(topic)}
+            className={topic.attempted ? "attempted" : ""}
+          >
             <h3>{topic.title}</h3>
           </li>
         ))}
       </ul>
 
       {selectedTopic && (
-        <div className={`dialog ${selectedTopic ? "open" : ""}`}>
-          <div className="dialog-content" ref={dialogRef}>
+        <div
+          className={`dialog ${selectedTopic ? "open" : ""}`}
+          ref={dialogRef}
+        >
+          <div className="dialog-content">
             <h3>{selectedTopic.title}</h3>
             <p>{selectedTopic.description}</p>
             {selectedTopic.url && (
               <a
                 href={selectedTopic.url}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 Problem
               </a>
             )}
