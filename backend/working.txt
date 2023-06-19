@@ -1,0 +1,6 @@
+for Prisma:
+    run: npx prisma studio
+    migrate: npx prisma db seed
+
+for nestjs: 
+    run: npm run start:dev
